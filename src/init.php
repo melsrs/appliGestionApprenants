@@ -9,7 +9,7 @@ require_once __DIR__ . "/../config.php";
 
 if (DB_INITIALIZED == FALSE) {
   $db = new src\Models\Database();
-  echo $db->initialisationBDD();
+  echo $db->initializeDB();
 }
 
 require_once __DIR__ . "/router.php";
