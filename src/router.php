@@ -17,6 +17,9 @@ switch ($uri) {
   case '/accueil':
       $HomeController-> accueil();
       break;
+    case '/accueilFormateur':
+      $HomeController-> accueilFormateur();
+      break;
 
   default:
       # code...

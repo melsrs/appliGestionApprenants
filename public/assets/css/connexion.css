@@ -1,14 +1,6 @@
-/* NavBarre */
-
-.bg-body-tertiary{
-    margin: 0 0 95px 0;
-  }
-
-
-/* Connexion  */
-
 #connexion {
   margin: auto;
+  margin-top: 80px;
   max-width: 30%;
   border-radius: 4px;
   background-color: #f8f9fa;
@@ -32,7 +24,12 @@
   display: block;
   margin: auto;
   margin-top: 45px;
-  /* padding: 2px 10px 2px 10px; */
 }
 
+#accueilApprenant{
+  padding: 25px 0 0 40px;
+}
 
+.inputCode {
+  width: 96% !important;
+}

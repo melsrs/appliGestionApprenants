@@ -25,6 +25,11 @@ class HomeController
         $this->render("accueil", ["section" => 'menu', 'action' => 'connexion']);
     }
 
+    public function accueilFormateur()
+    {
+        $this->render("accueilFormateur", ["section" => 'menu', 'action' => 'connexion']);
+    }
+
     // public function inscription()
     // {
     //     $this->render("accueil", ["section" => 'menu', 'action' => 'inscription']);
