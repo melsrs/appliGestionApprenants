@@ -17,5 +17,4 @@ function ChargerClasses($classe)
   }
 }
 
-// La demande justement :
 spl_autoload_register('ChargerClasses');

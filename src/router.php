@@ -1,18 +1,69 @@
 <?php
 
+// var_dump($_SERVER);
+
+use src\Controllers\HomeController;
+
+$uri = $_SERVER['REQUEST_URI'];
+$methode = $_SERVER['REQUEST_METHOD'];
+
+$HomeController = new HomeController();
+
+
+switch ($uri) {
+  case '/':
+      $HomeController-> index();
+      break;
+  case '/accueil':
+      $HomeController-> accueil();
+      break;
+
+  default:
+      # code...
+      break;
+}
+
+// $reservationController = new ReservationController();
+// $simplonController = new SimplonController();
+
+// switch ($uri) {
+//     case HOME_URL . "/":
+//         $homeController->index();
+//         break;
+//     case HOME_URL . "/connexion":
+//         if ($methode == 'GET') {
+//             $reservationController->index();
+//         } else if ($methode == 'POST') {
+//             $reservationController->handleFormSubmission();
+//         }
+//         break;
+        
+    // case HOME_URL . "/simplon":
+    //     if ($methode == 'GET') {
+    //         $simplonController->homepage();
+    //     } else if ($methode == 'POST') {
+    //         $simplonController->create();
+    //     }
+    //     break;
+    // default:
+    //     $homeController->pageNotFound();
+    //     break;
+// }
+
+
 // Je récupère le UserController pour avoir accès a la fonction login un peu plus bas
-use src\Controllers\UserController;
+// use src\Controllers\UserController;
 
 // Je fais appel à mon système de routing custom
-use src\Services\Routing;
+// use src\Services\Routing;
 
 
 // Instanciation de mon UserController pour pouvoir l'utiliser
-$UserController = new UserController;
+// $UserController = new UserController;
 
 
 // $route est la route dans l'url, ex: http://localhost/gestion-des-apprenants/public/cours/123
-$route = $_SERVER['REQUEST_URI'];
+// $route = $_SERVER['REQUEST_URI'];
 
 // $methode est la méthode http la requête qui accède au serveur 
 // Elle se définis en javascript quand on fais un appel réseau 
@@ -27,7 +78,7 @@ $route = $_SERVER['REQUEST_URI'];
 //     "Content-Type": "application/json; charset=utf-8"
 //  },
 
-$methode = $_SERVER['REQUEST_METHOD'];
+// $methode = $_SERVER['REQUEST_METHOD'];
 
 
 
@@ -35,35 +86,35 @@ $methode = $_SERVER['REQUEST_METHOD'];
 // Par exemple , si mon url est  http://localhost/gestion-des-apprenants/public/films/delete/1
 // $routeComposée sera un tableau contenant les paramètres après public entrecoupée par des / 
 // donc ["film","delete","1"]
-$routeComposee = Routing::routeComposee($route);
+// $routeComposee = Routing::routeComposee($route);
 
 
 
 // j'utilise la boucle switch , pour gérer toutes les routes possibles dans mon application.
 // c'est à dire que chaque partie accessible aura son propre case 
 // Si j'ai une route login , il y a aura un case "login" etc...
-switch ($route) {
+// switch ($route) {
 
 
     // Dans le cas ou la route est à l'accueil, mais on pourrait définir une autre route
-  case HOME_URL:
+  // case HOME_URL:
 
     // Je récupère la date
-    $data = file_get_contents("php://input");
+    // $data = file_get_contents("php://input");
 
     // Cette data étant envoyée en JSON, je dois la decoder avec cette fonction
     // pour que ça soit interprétable par php
     // le second argument true, indique que le résultat
     // doit être sous forme de tableau 
     // Pourquoi ? parce que ca sera plus facilement gérable en php
-    $user = json_decode($data, true);
+    // $user = json_decode($data, true);
 
     // Je déclare la variable email -> qui a une version néttoyée et sécurisée
     // de ce qu'il y a dans mon tableau user à son index email, 
     // voila pourquoi on passait l'argument true à la fonction
     // json_decode()
-    $email = htmlspecialchars(strip_tags(trim($user["email"])));
-    $password = htmlspecialchars(strip_tags(trim($user["password"])));
+    // $email = htmlspecialchars(strip_tags(trim($user["email"])));
+    // $password = htmlspecialchars(strip_tags(trim($user["password"])));
 
 
     //  Maintenant que nous avons récupérer l'email et le password
@@ -77,12 +128,12 @@ switch ($route) {
     // au format json 
     // A l'époque nous avions un fichier de traitement, qui est aujourd'hui
     // remplacé par ce controller et ce router.
-    $reponse =   $UserController->login($email, $password);
+    // $reponse =   $UserController->login($email, $password);
     //  Je retourne au format JSON la réponse du controller
-    echo json_encode($reponse);
+    // echo json_encode($reponse);
 
-    break;
+//     break;
 
-  default:
-    echo json_encode("Nothin here");
-}
+//   default:
+//     echo json_encode("Nothin here");
+// }
