@@ -19,7 +19,6 @@ function handleFormSubmission(event) {
   console.log(Email, Password);
 
 
-
   const url = "/login";
 
   const user = {
@@ -42,3 +41,4 @@ function handleFormSubmission(event) {
     console.log(result);
   });
 }
+

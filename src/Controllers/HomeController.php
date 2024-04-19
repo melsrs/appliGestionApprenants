@@ -50,13 +50,6 @@ class HomeController
             }
         }
     }
-    /**
-     * verifier si j'ai bien reçu les données 
-     * verifier s'il existe un utilisateur avec ce mail 
-     * verifier si le mdp recuperer correspond au mdp qu'il m'a donné 
-     * soit oui -> on affiche le dashboard
-     * soit non -> afficher erreur [code => "succes | erreur", "message" => "message d'erreur | HTML"]
-     */
 }
 
 if (!empty(file_get_contents('php://input'))) {
