@@ -5,7 +5,7 @@ include_once __DIR__ . '/Includes/navBarreCo.php';
 
 ?>
    
-   <div id="connexion">
+   <div class="container bg-light p-4  col-md-4 mt-5 shadow-lg p-3 mb-5">
        <form>
            <div class="bienvenue">
                <h1>Bienvenue</h1>
@@ -19,6 +19,8 @@ include_once __DIR__ . '/Includes/navBarreCo.php';
                <input type="password" class="form-control" id="exampleInputPassword1">
            </div>
 
-           <button onclick="handleLogin()" class="btn btn-primary" id="submissionButton">Connexion</button>
+           <button type="button" class="btn btn-primary" id="submissionButton">Connexion</button>
        </form>
    </div>
+
+   <script src="../../assets/js/script.js"></script>

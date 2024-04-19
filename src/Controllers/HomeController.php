@@ -2,6 +2,7 @@
 
 namespace src\Controllers;
 
+use src\Repositories\UserRepository;
 use src\Services\Reponse;
 
 class HomeController
@@ -25,36 +26,46 @@ class HomeController
         $this->render("accueil", ["section" => 'menu', 'action' => 'connexion']);
     }
 
+    
     public function accueilFormateur()
     {
         $this->render("accueilFormateur", ["section" => 'menu', 'action' => 'connexion']);
     }
 
-    // public function inscription()
-    // {
-    //     $this->render("accueil", ["section" => 'menu', 'action' => 'inscription']);
-    // }
+    public function connexion()
+    {
+        if (isset($_POST['Email']) && isset($_POST['Password'])) {
+            $UserRepo = new UserRepository;
 
-    // public function formulaireResa()
-    // {
-    //     $this->render("formulaireReservation", ["erreur" => '']);
-    // }
+            $user = $UserRepo->checkEmailExists($_POST['Email']);
 
-    // public function quit()
-    // {
-    //     session_destroy();
-    //     header('location: ' . HOME_URL);
-    //     die();
-    // }
+            if ($user && password_verify($_POST['_Password'], $user->getMdp())) {
+                $_SESSION['connecté'] = true;
 
-    // public function new()
-    // {
-    //     $this->render("dashboard", ["section" => 'new', 'action' => 'inscription']);
-    // }
+                echo json_encode(array("success" => true));
+                exit();
+            } else {
+                echo json_encode(array("success" => false, "message" => "L'email ou le mot de passe est incorrect."));
+                exit();
+            }
+        }
+    }
+    /**
+     * verifier si j'ai bien reçu les données 
+     * verifier s'il existe un utilisateur avec ce mail 
+     * verifier si le mdp recuperer correspond au mdp qu'il m'a donné 
+     * soit oui -> on affiche le dashboard
+     * soit non -> afficher erreur [code => "succes | erreur", "message" => "message d'erreur | HTML"]
+     */
+}
 
-    // public function page404(): void
-    // {
-    //     header("HTTP/1.1 404 Not Found");
-    //     $this->render('404');
-    // }
+if (!empty(file_get_contents('php://input'))) {
+    $data = json_decode(file_get_contents('php://input'));
+
+    if ($data) {
+        $password = htmlspecialchars($data->password);
+        $email = htmlspecialchars($data->email);
+        $userRepo = new UserRepository;
+        $user = $userRepo->checkEmailExists($email);
+    }
 }

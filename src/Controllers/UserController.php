@@ -21,15 +21,10 @@ class UserController
         // $this->ReservationRepo = new ReservationRepository();
     }
 
-    public function login($email, $password)
+    public function login($email, $mdp)
     {
-
-        // Ce controller est très simple
-        // j'instancie le UserRepostory, pour me servir
-        // de sa fonction login en lui passant l'email et le password,
-        // Je retourne sa réponse
         $userRepo = new UserRepository();
-        $reponse = $userRepo->login($email, $password);
+        $reponse = $userRepo->login($email, $mdp);
         echo json_encode($reponse);
     }
 }

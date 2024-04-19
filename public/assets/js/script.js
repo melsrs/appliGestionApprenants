@@ -1,24 +1,31 @@
+console.log("js loaded");
+
 const submissionButton = document.getElementById("submissionButton");
 const body = document.getElementById("body");
 
-const inputEmail = document.getElementById("exampleInputEmail1");
-const inputPassword = document.getElementById("exampleInputPassword1");
+
 
 if (submissionButton) {
   submissionButton.addEventListener("click", handleFormSubmission);
 }
 
 function handleFormSubmission(event) {
+  const Email = document.getElementById("exampleInputEmail1").value;
+  const Password = document.getElementById("exampleInputPassword1").value;
+
+
   event.preventDefault();
+  console.log("js works");
+  console.log(Email, Password);
 
-  const inputEmailValue = inputEmail.value;
-  const inputPasswordValue = inputPassword.value;
 
-  const url = "/";
+
+  const url = "/login";
 
   const user = {
-    email: inputEmailValue,
-    password: inputPasswordValue,
+    email: Email,
+    password: Password,
+
   };
 
   fetch(url, {
@@ -30,7 +37,8 @@ function handleFormSubmission(event) {
   }).then((response) => {
     return response.text();
   }).then((result) => {
-    body.innerHTML = ''
-    body.innerHTML = result
+    // body.innerHTML = ''
+    // body.innerHTML = result
+    console.log(result);
   });
 }

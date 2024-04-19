@@ -8,6 +8,6 @@
             <input type="text" class="form-control" id="inputCode" aria-describedby="emailHelp">
         </div>
 
-        <button type="submit" class="btn btn-primary ">Valider ma présence</button>
+        <button type="button" class="btn btn-primary" id="submissionButton">Valider ma présence</button>
     </form>
 </div>
