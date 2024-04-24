@@ -10,7 +10,7 @@ Installer PHP, WampServer, MySQL.
 
 Télécharger ce repository. 
 
-Créer une base de données MySQL avec le fichier gestionapprenants.sql dans le dossier migration. 
+Créer une base de données MySQL avec le fichier gestionapprenants.sql dans le dossier migration.
 
 Modifiez le fichier config.php avec vos propres informations. Il se trouve à la racine du projet. Il est utilisé pour spécifier les paramètres du projet.
 
@@ -19,21 +19,20 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', '');
 define('DB_USER', '');
 define('DB_PWD', '');
-define('PREFIXE', '');
+define('PREFIXE', 'your password');
+
+define('HOME_URL', 'your home url');
+
+define('DB_INITIALIZED', TRUE);
 ````
 
-Lancer le serveur PHP (local via wamp)
+Lancer le serveur PHP (local via wamp).
 
-# Migration
+# Technologies Utilisées
 
-Lors de l'installation, la base de données va initialiser le code du fichier stocké dans les Migrations.
+HTML/CSS 
 
-Si vous souhaitez faire des modifications avant la création de la base de données, c'est donc dans ce fichier que vous devez modifier les choses.
-
-
-#  Version 
-
-Le programme a été conçu avec :
+JavaScript 
 
 PHP 8.3.0
 
