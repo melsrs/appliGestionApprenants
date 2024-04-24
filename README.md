@@ -12,7 +12,7 @@ Télécharger ce repository.
 
 Créer une base de données MySQL avec le fichier gestionapprenants.sql dans le dossier migration.
 
-Modifiez le fichier config.php avec vos propres informations. Il se trouve à la racine du projet. Il est utilisé pour spécifier les paramètres du projet.
+Modifier le fichier config.php avec vos propres informations. Il se trouve à la racine du projet. Il est utilisé pour spécifier les paramètres du projet.
 
 ````
 define('DB_HOST', 'localhost');
